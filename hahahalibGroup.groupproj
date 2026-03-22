@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{57E1B4E6-0F5E-4905-9D8A-D2A86A1801BC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="hahahaISAlib\hahahaISAlib.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="hahahaISAlib">
+        <MSBuild Projects="hahahaISAlib\hahahaISAlib.cbproj"/>
+    </Target>
+    <Target Name="hahahaISAlib:Clean">
+        <MSBuild Projects="hahahaISAlib\hahahaISAlib.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="hahahaISAlib:Make">
+        <MSBuild Projects="hahahaISAlib\hahahaISAlib.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="hahahaISAlib"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="hahahaISAlib:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="hahahaISAlib:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
